@@ -82,50 +82,57 @@ class DashboardPostFileController extends Controller
      */
     public function edit(string $id)
     {
-        $postfile = PostFile::find($id);
-        return view('dashboard.postfile.edit', [
-            // 'postfile' => PostFile::all(),
+        // $postfile = PostFile::find($id);
+        // return view('dashboard.postfile.edit', [
+        //     // 'postfile' => PostFile::all(),
             
-        ]);
+        // ]);
+
+        $postfile = PostFile::find($id);
+        return view('dashboard.postfile.edit', compact(['postfile']));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PostFile $postfile)
+    public function update(Request $request, PostFile $id)
     {
-        $rules = [
-            'title' => 'required|max:255',
-            'data_file' => 'required|mimes:pdf,doc,docx|max:20000'
-        ];
+        // $rules = [
+        //     'title' => 'required|max:255',
+        //     'data_file' => 'required|mimes:pdf,doc,docx|max:20000'
+        // ];
         
-        // if($request->slug != $post->slug){
-        //     $rules['slug'] = 'required|unique:posts';
-        // }
+        // // if($request->slug != $post->slug){
+        // //     $rules['slug'] = 'required|unique:posts';
+        // // }
 
-        $validatedData = $request->validate($rules);
+        // $validatedData = $request->validate($rules);
 
         
-        // $validatedData['user_id'] = auth()->user()->id;
-        // $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+        // // $validatedData['user_id'] = auth()->user()->id;
+        // // $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
-        PostFile::where('id', $postfile->id)
-            ->update($validatedData);
+        // PostFile::where('id', $postfile->id)
+        //     ->update($validatedData);
 
-        // $postfile = PostFile::find($id);
-        // $postfile->update($request->all());
+        // // $postfile = PostFile::find($id);
+        // // $postfile->update($request->all());
        
 
 
+        // return redirect('/dashboard/posts')->with('success', 'post telah diupdate !');
+
+        $postfile = PostFile::find($id);
+        $postfile->update($request->all());
         return redirect('/dashboard/posts')->with('success', 'post telah diupdate !');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(PostFile $postfile)
     {
-        PostFile::destroy($id);
+        PostFile::destroy($postfile->id);
 
         // dd($id);
 

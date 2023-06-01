@@ -10,7 +10,7 @@
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                value="{{ old('title') }}">
+            value="{{ $postfile->title }}">
             @error('title')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -60,6 +60,12 @@
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div> --}}
+
+        <div class="mb-3">
+            <label for="file" class="form-label">Post File</label>
+            <input class="form-control @error('data_file') is-invalid @enderror" type="file" id="data_file"
+                name="data_file">
+        </div>
 
         <button type="submit" class="btn btn-primary mb-5">Update Post</button>
     </form>
