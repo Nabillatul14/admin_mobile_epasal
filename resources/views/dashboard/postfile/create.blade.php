@@ -48,6 +48,19 @@
                     name="data_file">
             </div>
 
+            <label for="file" class="form-label">Kategori Luar</label>
+            <select class="form-select mb-3" aria-label="Default select example" name="kategori_luar">
+                <option value="1">Pemilu</option>
+                <option value="2">Pemilihan</option>
+              </select>
+
+            <label for="file" class="form-label">Kategori Luar</label>
+
+            <select class="form-select mb-3" aria-label="Default select example" name="kategori_dalam">
+            <option value="1">Undang Undang Pemilu</option>
+            <option value="2">PERBAWASLU</option>
+            </select>
+
             {{-- <div class="mb-3">
                 <label for="body" class="form-label">Body</label>
                 <input id="body" type="hidden" name="body" value="{{ old('body') }}">

@@ -61,10 +61,25 @@
             @enderror
         </div> --}}
 
+        <label for="file" class="form-label">Kategori Luar</label>
+        <select class="form-select mb-3" aria-label="Default select example" name="kategori_luar">
+            <option value="1" {{ $postfile->kategori_luar == 1 ? 'selected' : '' }}>Pemilu</option>
+            <option value="1" {{ $postfile->kategori_luar == 2 ? 'selected' : '' }}>Pemilihan</option>
+            </select>
+
+        <label for="file" class="form-label">Kategori Dalam</label>
+
+        
+            <select class="form-select mb-3" aria-label="Default select example" name="kategori_dalam">
+                <option value="1" {{ $postfile->kategori_dalam == 1 ? 'selected' : '' }}>Undang Undang Pemilu</option>
+                <option value="1" {{ $postfile->kategori_dalam == 2 ? 'selected' : '' }}>PERBAWASLU</option>
+            </select>
+        
+
         <div class="mb-3">
             <label for="file" class="form-label">Post File</label>
             <input class="form-control @error('data_file') is-invalid @enderror" type="file" id="data_file"
-                name="data_file">
+                name="data_file" value="{{ $postfile->data_file }}">
         </div>
 
         <button type="submit" class="btn btn-primary mb-5">Update Post</button>

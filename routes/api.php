@@ -24,3 +24,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [PostfileApiController::class, 'index']);
+
+Route::get('/pemiluUUD', [PostfileApiController::class, 'pemiluUndangUndang']);
+Route::get('/pemiluPerbawaslu', [PostfileApiController::class, 'pemiluPerbawaslu']);
+Route::get('/pemilihanUUD', [PostfileApiController::class, 'pemilihanUndangUndang']);
+Route::get('/pemilihanPerbawaslu', [PostfileApiController::class, 'pemilihanPerbawaslu']);

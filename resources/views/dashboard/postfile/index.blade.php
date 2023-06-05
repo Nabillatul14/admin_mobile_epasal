@@ -19,6 +19,8 @@
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Kategori Luar</th>
+                    <th scope="col">Kategori Dalam</th>
                     <th scope="col">Created At</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -28,6 +30,8 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $post->title }}</td>
+                        <td>{{ $post->kategori_luar }}</td>
+                        <td>{{ $post->kategori_dalam }}</td>
                         <td>{{ $post->created_at }}</td>
                         <td>
                             <a href="http://127.0.0.1:8000{{ Storage::url($post->data_file) }}" class="badge bg-info"><span

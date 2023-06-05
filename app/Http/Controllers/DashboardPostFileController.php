@@ -35,7 +35,9 @@ class DashboardPostFileController extends Controller
         $validatedData = $request->validate([
             // 'user_id' => 'required',
             'title' => 'required|max:255',
-            'data_file' => 'required|mimes:pdf,doc,docx|max:20000'
+            'data_file' => 'required|mimes:pdf,doc,docx|max:20000',
+            'kategori_luar' => 'required',
+            'kategori_dalam' => 'required'
         ]);
 
         // $path = $request->file('file')->store('public');
@@ -45,6 +47,7 @@ class DashboardPostFileController extends Controller
 
         if ($request->file('data_file')) {
             $validatedData['data_file'] = $request->file('data_file')->store('public/data-file');
+            // dd($validatedData);
         }
 
         PostFile::create($validatedData);
@@ -89,6 +92,7 @@ class DashboardPostFileController extends Controller
         // ]);
 
         $postfile = PostFile::find($id);
+        
         return view('dashboard.postfile.edit', compact(['postfile']));
     }
 

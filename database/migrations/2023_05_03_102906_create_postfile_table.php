@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('data_file');
+            $table->string("kategori_luar");
+            $table->string("kategori_dalam");
             $table->timestamps();
         });
     }

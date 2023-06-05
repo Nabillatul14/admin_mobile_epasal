@@ -10,7 +10,7 @@ class PostFile extends Model
     use HasFactory;
     protected $table = 'postfile';
     protected $fillable = [
-        'title', 'data_file'
+        'title', 'data_file', 'kategori_luar', 'kategori_dalam'
     ];
 
     public function author()
