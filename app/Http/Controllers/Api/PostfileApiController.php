@@ -26,6 +26,13 @@ class PostfileApiController extends Controller
         ])->get());
     }
 
+    public function pemiluKeputusan(){
+        return response()->json(PostFile::where([
+            ['kategori_luar', '=', '1'],
+            ['kategori_dalam', '=', '3']
+        ])->get());
+    }
+
     public function pemilihanUndangUndang(){
         return response()->json(PostFile::where([
             ['kategori_luar', '=', '2'],
@@ -37,6 +44,13 @@ class PostfileApiController extends Controller
         return response()->json(PostFile::where([
             ['kategori_luar', '=', '2'],
             ['kategori_dalam', '=', '2']
+        ])->get());
+    }
+
+    public function pemilihanKeputusan(){
+        return response()->json(PostFile::where([
+            ['kategori_luar', '=', '2'],
+            ['kategori_dalam', '=', '3']
         ])->get());
     }
 }

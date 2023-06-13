@@ -54,11 +54,12 @@
                 <option value="2">Pemilihan</option>
               </select>
 
-            <label for="file" class="form-label">Kategori Luar</label>
+            <label for="file" class="form-label">Kategori Dalam</label>
 
             <select class="form-select mb-3" aria-label="Default select example" name="kategori_dalam">
             <option value="1">Undang Undang Pemilu</option>
             <option value="2">PERBAWASLU</option>
+            <option value="3">Keputusan BAWASLU</option>
             </select>
 
             {{-- <div class="mb-3">

@@ -27,5 +27,6 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::resource('/dashboard/posts', DashboardPostFileController::class);
+// Route::resource('/dashboard/posts{postfile:id}/hapus', DashboardPostFileController::class);
 // Route::get('/dashboard/posts/{{ Storage::url($postfile->data_file)}}', [DashboardPostFileController::class, 'tampilData']);
 // Route::put('/postfile/{id}', [DashboardPostFileController::class, 'edit']);
