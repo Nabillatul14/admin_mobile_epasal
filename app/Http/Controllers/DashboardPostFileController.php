@@ -15,7 +15,7 @@ class DashboardPostFileController extends Controller
     public function index()
     {
         return view('dashboard.postfile.index', [
-            'post_file' => PostFile::all()
+            'postfile' => PostFile::all()
         ]);
     }
 

@@ -9,6 +9,7 @@ class PostFile extends Model
 {
     use HasFactory;
     protected $table = 'postfile';
+    // protected $guarded = [''];
     protected $fillable = [
         'title', 'data_file', 'kategori_luar', 'kategori_dalam'
     ];
