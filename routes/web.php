@@ -16,11 +16,6 @@ use App\Http\Controllers\DashboardPostFileController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
  
 Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -28,6 +23,3 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostFileController::class)->middleware('auth');
-// Route::resource('/dashboard/posts{postfile:id}/hapus', DashboardPostFileController::class);
-// Route::get('/dashboard/posts/{{ Storage::url($postfile->data_file)}}', [DashboardPostFileController::class, 'tampilData']);
-// Route::put('/postfile/{id}', [DashboardPostFileController::class, 'edit']);

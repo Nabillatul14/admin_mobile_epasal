@@ -34,8 +34,6 @@
                         <td>{{ $post->kategori_dalam }}</td>
                         <td>{{ $post->created_at }}</td>
                         <td>
-                            {{-- <a href="http://127.0.0.1:8000{{ Storage::($post->data_file) }}" class="badge bg-info"><span
-                                    data-feather="eye"></span></a> --}}
 
                             <a href="/storage/{{ $post->data_file }}" class="badge bg-info" target="blank"><span
                                     data-feather="eye"></span></a>
@@ -43,27 +41,11 @@
                             <a href="/dashboard/posts/{{ $post->id }}/edit" class="badge bg-warning"><span
                                     data-feather="edit"></span></a>
 
-                            {{-- <a href="{{ asset('storage/public/data-file/' . $post->data_file) }}">{{ $post->title }}</a> --}}
-
-
-                            {{-- <form action="/dashboard/posts/{{ $post->id }}" method="post" class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <button class="badge bg-danger border-0"
-                                    onclick="return confirm('apakah anda yakin ingin menghapus data??')"><span
-                                        data-feather="trash"></span></button>
-                            </form> --}}
-
-                            {{-- <form action="/dashboard/post/{{ $post->id }}/hapus" method="POST"
-                                class="d-inline">
-                                @csrf
-                                <button class="btn btn-danger"><i class="fa fa-trash fa-lg"></i></button>
-                            </form> --}}
                             <form action="/dashboard/posts/{{ $post->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0"
-                                    onclick="return confirm('apakah anda yakin ingin menghapus data??')"><span
+                                    onclick="return confirm('apakah anda yakin ingin menghapus data?')"><span
                                         data-feather="trash"></span></button>
                             </form>
 

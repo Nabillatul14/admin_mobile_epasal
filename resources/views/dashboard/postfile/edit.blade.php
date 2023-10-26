@@ -31,7 +31,7 @@
                 <option value="3" {{ $postfile->kategori_dalam == 3 ? 'selected' : '' }}>Keputusan BAWASLU</option>
             </select>
             <div class="mb-3">
-                <label for="data_file" class="form-label">Post File</label>
+                <label for="data_file" class="form-label">Upload File</label>
                 <a href="/storage/{{ $postfile->data_file }}">{{ $postfile->title }}</a>
                 <input class="form-control @error('data_file') is-invalid @enderror" type="file" id="data_file"
                     name="data_file">
@@ -40,11 +40,6 @@
                         {{ $message }}
                     </div>
                 @enderror
-                {{-- @if (file_exists(public_path('storage/' . $postfile->data_file)))
-                    <p><b>File yang terupload: </b><a href="{{ asset('storage/' . $postfile->data_file) }}"
-                            target="blank">{{ $postfile->title }}.pdf</a>
-                    </p>
-                @endif --}}
             </div>
             <button type="submit" class="btn btn-primary mb-5">Update Post</button>
         </form>

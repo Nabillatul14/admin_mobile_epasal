@@ -6,7 +6,7 @@
     <div class="col-lg-8">
         <form method="post" action="/dashboard/posts" enctype="multipart/form-data">
             @csrf
-            
+
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
@@ -18,58 +18,25 @@
                 @enderror
             </div>
 
-            {{-- <div class="mb-3">
-                <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
-                    value="{{ old('slug') }}">
-                @error('slug')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div> --}}
-
-            {{-- <div class="mb-3">
-                <label for="category" class="form-label">Kategori</label>
-                <select class="form-select" name="category_id">
-                    @foreach ($categories as $category)
-                        @if (old('category_id') == $category->id)
-                            <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-                        @else
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endif
-                    @endforeach
-                </select>
-            </div> --}}
-
-            <div class="mb-3">
-                <label for="file" class="form-label">Post File</label>
-                <input class="form-control @error('data_file') is-invalid @enderror" type="file" id="data_file"
-                    name="data_file">
-            </div>
-
             <label for="file" class="form-label">Kategori Luar</label>
             <select class="form-select mb-3" aria-label="Default select example" name="kategori_luar">
                 <option value="1">Pemilu</option>
                 <option value="2">Pemilihan</option>
-              </select>
+            </select>
 
             <label for="file" class="form-label">Kategori Dalam</label>
 
             <select class="form-select mb-3" aria-label="Default select example" name="kategori_dalam">
-            <option value="1">Undang Undang Pemilu</option>
-            <option value="2">PERBAWASLU</option>
-            <option value="3">Keputusan BAWASLU</option>
+                <option value="1">Undang Undang Pemilu</option>
+                <option value="2">PERBAWASLU</option>
+                <option value="3">Keputusan BAWASLU</option>
             </select>
 
-            {{-- <div class="mb-3">
-                <label for="body" class="form-label">Body</label>
-                <input id="body" type="hidden" name="body" value="{{ old('body') }}">
-                <trix-editor input="body"></trix-editor>
-                @error('body')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror
-            </div> --}}
+            <div class="mb-3">
+                <label for="file" class="form-label">Upload File</label>
+                <input class="form-control @error('data_file') is-invalid @enderror" type="file" id="data_file"
+                    name="data_file">
+            </div>
 
             <button type="submit" class="btn btn-primary mb-5">Create Post</button>
         </form>

@@ -40,10 +40,6 @@ class DashboardPostFileController extends Controller
             'kategori_dalam' => 'required'
         ]);
 
-        // $path = $request->file('file')->store('public');
-
-        // // Ambil URL file yang disimpan
-        // $url = Storage::url($path);
 
         if ($request->file('data_file')) {
             $validatedData['data_file'] = $request->file('data_file')->store('public/data-file');
@@ -60,25 +56,7 @@ class DashboardPostFileController extends Controller
      */
     public function show(string $id)
     {
-        //     if($postfile->author->id !== auth()->user()->id) {
-        //         abort(403);
-        //    }
-
-        // $data_file = PostFile::where('id', '1');
-
-        // return view('dashboard.postfile.show',[
-        //     'postfile' => $postfile
-        // ]);
-
-        // $postfile = Postfile::find($id);
-        // // dd($postfile);
-        // return view('dashboard.postfile.show', [
-        //     'postfile' => $postfile
-        // ]);
-
-
-        // return $postfile;
-
+        //
     }
 
     /**
@@ -86,14 +64,8 @@ class DashboardPostFileController extends Controller
      */
     public function edit(string $id)
     {
-        // $postfile = PostFile::find($id);
-        // return view('dashboard.postfile.edit', [
-        //     // 'postfile' => PostFile::all(),
-
-        // ]);
 
         $postfile = PostFile::find($id);
-        // $postfile PostFile::findOrFail($id)->first()->fill($request->all())->save();
 
         return view('dashboard.postfile.edit', compact(['postfile']));
     }
@@ -103,49 +75,18 @@ class DashboardPostFileController extends Controller
      */
     public function update(Request $request, PostFile $postfile, $id)
     {
-        // $rules = [
-        //     'title' => 'required',
-        //     'data_file' => 'nullable|mimes:pdf,doc,docx|max:2048',
-        // ];
-
-        // $validatedData = $request->validate($rules);
-
-        // // Cek apakah terdapat file yang diupload
-        // if ($request->file('data_file')) {
-        //     if ($postfile->data_file) {
-        //         Storage::delete($postfile->data_file);
-        //     }
-        //     $validatedData['data_file'] = $request->file('data_file')->store('public/data-file');
-
-        //     if ($request->file('data_file')->getClientOriginalName() !== $postfile->data_file) {
-        //         $validatedData['data_file'] = $request->file('data_file')->storeAs('public/data-file', $request->file('data_file')->getClientOriginalName());
-        //     }
-        // } else {
-        //     // Jika tidak ada file yang diupload, hapus key 'data_file' dari array $validatedData
-        //     unset($validatedData['data_file']);
-        // }
-
-        // $postfile = PostFile::findOrFail($id);
-        // $postfile->fill($request->all());
-        // $postfile->kategori_luar = $request->kategori_luar; // Tambahkan baris ini
-        // $postfile->kategori_dalam = $request->kategori_dalam; // Tambahkan baris ini
-        // $postfile->save();
-
-        // PostFile::where('postfile', '=', 5)->update($validatedData);
-
-        // return redirect('/dashboard/posts')->with('success', 'Postingan Berhasil Di Update!');
         $rules = [
             'title' => 'required',
             'data_file' => 'nullable|mimes:pdf,doc,docx|max:2048',
         ];
-    
+
         $validatedData = $request->validate($rules);
-    
+
         $postfile = PostFile::findOrFail($id);
         $postfile->fill($request->all());
         $postfile->kategori_luar = $request->kategori_luar;
         $postfile->kategori_dalam = $request->kategori_dalam;
-    
+
         // Mengubah link file menjadi format yang diinginkan
         if ($request->file('data_file')) {
             if ($postfile->data_file) {
@@ -156,37 +97,20 @@ class DashboardPostFileController extends Controller
             $path = $file->storeAs('public/data-file', $fileName);
             $postfile->data_file = str_replace('storage/', 'public/', $path);
         }
-    
+
         $postfile->save();
         return redirect('/dashboard/posts')->with('success', 'Postingan Berhasil Di Update!');
-    
     }
 
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PostFile $postfile)
+    public function destroy(string $id)
     {
-        // PostFile::destroy($postfile->id);
+        $postfile = PostFile::findOrFail($id);
+        $postfile->delete();
 
-        // // dd($id);
-
-        // return redirect('/dashboard/posts')->with('success', 'post telah dihapus!');
-
-        // PostFile::destroy($postfile->id);
-        // return redirect('/dashboard/posts')->with('success', 'Data Berhasil di Hapus !');
-
-        // PostFile::destroy($postfile->id);
-
-        // return redirect('/dashboard/posts')->with('success', 'post telah dihapus!');
-        PostFile::destroy($postfile->id);
         return redirect('/dashboard/posts')->with('success', 'Data Berhasil di Hapus !');
     }
-    // public function tampilData($id){
-    //     $post = Postfile::find($id);
-    //     return view('dashboard.postfile.show',[
-    //         'postfile' => $post
-    //     ]);
-    // }
 }
