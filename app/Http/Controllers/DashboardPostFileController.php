@@ -34,10 +34,11 @@ class DashboardPostFileController extends Controller
     {
         $validatedData = $request->validate([
             // 'user_id' => 'required',
-            'title' => 'required|max:255',
+            'title' => 'required|max:265',
             'data_file' => 'required|mimes:pdf,doc,docx|max:20000',
             'kategori_luar' => 'required',
-            'kategori_dalam' => 'required'
+            'kategori_dalam' => 'required',
+            'description' => 'required'
         ]);
 
 
@@ -78,6 +79,7 @@ class DashboardPostFileController extends Controller
         $rules = [
             'title' => 'required',
             'data_file' => 'nullable|mimes:pdf,doc,docx|max:2048',
+            'description' => 'required'
         ];
 
         $validatedData = $request->validate($rules);

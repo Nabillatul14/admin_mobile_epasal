@@ -27,7 +27,7 @@
             <label for="file" class="form-label">Kategori Dalam</label>
 
             <select class="form-select mb-3" aria-label="Default select example" name="kategori_dalam">
-                <option value="1">Undang Undang Pemilu</option>
+                <option value="1">Undang Undang</option>
                 <option value="2">PERBAWASLU</option>
                 <option value="3">Keputusan BAWASLU</option>
             </select>
@@ -36,6 +36,12 @@
                 <label for="file" class="form-label">Upload File</label>
                 <input class="form-control @error('data_file') is-invalid @enderror" type="file" id="data_file"
                     name="data_file">
+            </div>
+
+            <div class="mb-3">
+                <label for="file" class="form-label">Description</label>
+                <textarea class="form-control @error('data_file') is-invalid @enderror" placeholder="Leave a description here"
+                    id="floatingTextarea" name="description" style="width: 100%; min-height: 200px;"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary mb-5">Create Post</button>

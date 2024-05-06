@@ -25,8 +25,7 @@
             </select>
             <label for="kategori_dalam" class="form-label">Kategori Dalam</label>
             <select class="form-select mb-3" aria-label="Default select example" name="kategori_dalam">
-                <option value="1" {{ $postfile->kategori_dalam == 1 ? 'selected' : '' }}>Undang Undang Pemilu
-                </option>
+                <option value="1" {{ $postfile->kategori_dalam == 1 ? 'selected' : '' }}>Undang Undang</option>
                 <option value="2" {{ $postfile->kategori_dalam == 2 ? 'selected' : '' }}>PERBAWASLU</option>
                 <option value="3" {{ $postfile->kategori_dalam == 3 ? 'selected' : '' }}>Keputusan BAWASLU</option>
             </select>
@@ -41,6 +40,20 @@
                     </div>
                 @enderror
             </div>
+
+            <div class="mb-3">
+                <label for="file" class="form-label">Description</label>
+                <textarea class="form-control @error('data_file') is-invalid @enderror" placeholder="Leave a description here"
+                    id="floatingTextarea" name="description" style="width: 100%; min-height: 200px;">
+                {{ $postfile->description }}
+            </textarea>
+                @error('description')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
             <button type="submit" class="btn btn-primary mb-5">Update Post</button>
         </form>
     </div>

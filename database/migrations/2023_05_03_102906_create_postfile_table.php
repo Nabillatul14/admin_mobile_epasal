@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('data_file');
             $table->string("kategori_luar");
             $table->string("kategori_dalam");
+            $table->text("description");
             $table->timestamps();
         });
     }
